@@ -734,6 +734,52 @@ section{position:relative;padding:58px 20px;text-align:center}
   <div class="lb-count" id="lbCount"></div>
 </div>
 
+<button class="admin-fab" id="adminFab" aria-label="Generador de invitados" title="Generador de invitados">✦</button>
+
+<div class="invite-generator" id="inviteGenerator" aria-hidden="true">
+  <div class="generator-card">
+    <button class="generator-close" id="generatorClose" aria-label="Cerrar">×</button>
+    <h2>Generar invitación</h2>
+    <div class="generator-sub">Crea el enlace personalizado de cada invitado sin modificar el código.</div>
+
+    <label class="generator-label" for="genName">Nombre del invitado o familia</label>
+    <input class="generator-input" id="genName" type="text" placeholder="Ej. Liseth Chamorro">
+
+    <div class="generator-row">
+      <div>
+        <label class="generator-label" for="genSeats">Número de cupos</label>
+        <input class="generator-input" id="genSeats" type="number" min="1" max="20" value="1">
+      </div>
+      <div>
+        <label class="generator-label" for="genLabel">Tipo</label>
+        <select class="generator-input" id="genLabel">
+          <option value="persona">Persona</option>
+          <option value="familia">Familia</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="generator-actions">
+      <button class="btn" id="generateLinkBtn">Generar enlace</button>
+      <button class="btn btn-gold" id="previewInviteBtn">Vista previa</button>
+    </div>
+
+    <div class="generated-box" id="generatedBox" hidden>
+      <label class="generator-label">Enlace generado</label>
+      <textarea id="generatedLink" readonly></textarea>
+      <div class="generator-actions">
+        <button class="btn" id="copyLinkBtn">Copiar enlace</button>
+        <button class="btn btn-gold" id="shareLinkBtn">Compartir</button>
+      </div>
+    </div>
+
+    <div class="generator-note">
+      Este panel solo aparece al abrir la invitación con <strong>?admin=1</strong>.
+      Los invitados nunca verán el generador.
+    </div>
+  </div>
+</div>
+
 <script>
 /* ============================================================
    PLANTILLA MAESTRA — SOLO CAMBIA ESTE BLOQUE PARA OTRA PAREJA
@@ -1151,51 +1197,7 @@ document.getElementById('genName').addEventListener('keydown',e=>{
 
 </script>
 
-<button class="admin-fab" id="adminFab" aria-label="Generador de invitados" title="Generador de invitados">✦</button>
 
-<div class="invite-generator" id="inviteGenerator" aria-hidden="true">
-  <div class="generator-card">
-    <button class="generator-close" id="generatorClose" aria-label="Cerrar">×</button>
-    <h2>Generar invitación</h2>
-    <div class="generator-sub">Crea el enlace personalizado de cada invitado sin modificar el código.</div>
-
-    <label class="generator-label" for="genName">Nombre del invitado o familia</label>
-    <input class="generator-input" id="genName" type="text" placeholder="Ej. Liseth Chamorro">
-
-    <div class="generator-row">
-      <div>
-        <label class="generator-label" for="genSeats">Número de cupos</label>
-        <input class="generator-input" id="genSeats" type="number" min="1" max="20" value="1">
-      </div>
-      <div>
-        <label class="generator-label" for="genLabel">Tipo</label>
-        <select class="generator-input" id="genLabel">
-          <option value="persona">Persona</option>
-          <option value="familia">Familia</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="generator-actions">
-      <button class="btn" id="generateLinkBtn">Generar enlace</button>
-      <button class="btn btn-gold" id="previewInviteBtn">Vista previa</button>
-    </div>
-
-    <div class="generated-box" id="generatedBox" hidden>
-      <label class="generator-label">Enlace generado</label>
-      <textarea id="generatedLink" readonly></textarea>
-      <div class="generator-actions">
-        <button class="btn" id="copyLinkBtn">Copiar enlace</button>
-        <button class="btn btn-gold" id="shareLinkBtn">Compartir</button>
-      </div>
-    </div>
-
-    <div class="generator-note">
-      Este panel solo aparece al abrir la invitación con <strong>?admin=1</strong>.
-      Los invitados nunca verán el generador.
-    </div>
-  </div>
-</div>
 
 </body>
 </html>
