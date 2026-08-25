@@ -1,0 +1,1201 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090d12">
+<title id="pageTitle">Invitación de boda</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#070a0d;
+  --bg2:#0b1015;
+  --wine:#790d2d;
+  --wine2:#a31340;
+  --wine3:#4f071d;
+  --gold:#d6a64d;
+  --gold2:#f1d38a;
+  --cream:#f4eadf;
+  --cream2:#fff9f2;
+  --ink:#151515;
+  --line:rgba(214,166,77,.55);
+  --muted:#cdbfae;
+  --shadow:0 18px 42px rgba(0,0,0,.36);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:#030507;
+  color:white;
+  font-family:Montserrat,Arial,sans-serif;
+}
+body.lock{overflow:hidden}
+button,a{font-family:inherit}
+.page{
+  width:min(100%,520px);
+  margin:auto;
+  background:
+    radial-gradient(circle at 10% 2%,rgba(121,13,45,.13),transparent 20%),
+    linear-gradient(180deg,#05080b,#080c10 38%,#05080b);
+  min-height:100vh;
+  box-shadow:0 0 70px rgba(0,0,0,.8);
+  overflow:hidden;
+  border-left:1px solid rgba(214,166,77,.18);
+  border-right:1px solid rgba(214,166,77,.18);
+}
+section{position:relative;padding:58px 20px;text-align:center}
+.script{font-family:Parisienne,cursive}
+.serif{font-family:"Cormorant Garamond",serif}
+.eyebrow{
+  color:var(--gold2);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:10px;
+}
+.section-title{
+  font-family:Parisienne,cursive;
+  font-size:42px;
+  line-height:1;
+  font-weight:400;
+  color:var(--gold);
+  margin:8px 0 22px;
+}
+.gold-line{
+  width:150px;height:16px;margin:10px auto 24px;position:relative
+}
+.gold-line:before{
+  content:"";position:absolute;left:0;right:0;top:7px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent)
+}
+.gold-line:after{
+  content:"♡";position:absolute;left:50%;top:-5px;transform:translateX(-50%);
+  color:var(--gold);background:var(--bg);padding:0 8px;font-size:16px
+}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  color:#fff;text-decoration:none;border:none;cursor:pointer;
+  padding:13px 22px;border-radius:8px;
+  background:linear-gradient(180deg,#951237,#6d0827);
+  border:1px solid rgba(214,166,77,.38);
+  box-shadow:0 8px 18px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.08);
+  text-transform:uppercase;font-size:11px;letter-spacing:.04em;
+  transition:.25s
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn-gold{
+  background:linear-gradient(180deg,#d0a152,#aa742d);
+  color:#fff9ee
+}
+.reveal{opacity:0;transform:translateY(26px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+.reveal.show{opacity:1;transform:none}
+
+/* ---------- APERTURA / SOBRE ---------- */
+.cover{
+  position:fixed;z-index:10000;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  padding:18px;
+  background:
+    radial-gradient(circle at 50% 18%,rgba(140,17,53,.28),transparent 35%),
+    linear-gradient(180deg,#05080b,#090d12 55%,#17040b);
+  transition:.8s ease
+}
+.cover.hidden{opacity:0;visibility:hidden}
+.cover-inner{
+  width:min(430px,95vw);
+  text-align:center;
+  border:1px solid rgba(214,166,77,.42);
+  padding:28px 20px 30px;
+  border-radius:24px;
+  background:linear-gradient(180deg,rgba(12,15,18,.92),rgba(33,7,16,.92));
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
+  position:relative;overflow:hidden
+}
+.cover-inner:before,.cover-inner:after{
+  content:"";position:absolute;width:140px;height:140px;border-radius:50%;
+  filter:blur(50px);opacity:.35
+}
+.cover-inner:before{background:#8e1235;left:-40px;top:-40px}
+.cover-inner:after{background:#d0a24f;right:-70px;bottom:-60px}
+.cover .guest{
+  position:relative;z-index:2;
+  font-family:"Cormorant Garamond",serif;font-size:21px;color:#fff
+}
+.cover .guest strong{
+  display:block;font-size:31px;font-weight:500;color:var(--gold2);margin-top:5px
+}
+.cover .seats{position:relative;z-index:2;color:#e8dfd4;font-size:13px;line-height:1.65}
+
+/* ---------- SOBRE HIPERREALISTA ---------- */
+.envelope{
+  position:relative;
+  z-index:2;
+  width:min(390px,92%);
+  height:auto;
+  margin:28px auto 14px;
+  cursor:pointer;
+  filter:drop-shadow(0 20px 28px rgba(0,0,0,.48));
+  transition:transform .28s ease, filter .28s ease, opacity .55s ease;
+  outline:none;
+}
+.envelope:hover{
+  transform:translateY(-5px) scale(1.012);
+  filter:drop-shadow(0 25px 34px rgba(0,0,0,.58));
+}
+.envelope:focus-visible{
+  border-radius:16px;
+  box-shadow:0 0 0 2px var(--gold2);
+}
+.envelope-img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:4px;
+  user-select:none;
+  -webkit-user-drag:none;
+  pointer-events:none;
+}
+.envelope.open{
+  transform:scale(.965) translateY(8px);
+  opacity:.88;
+}
+.envelope.open .envelope-img{
+  animation:envelopeOpen .58s cubic-bezier(.2,.7,.2,1) forwards;
+}
+@keyframes envelopeOpen{
+  0%{transform:scale(1);filter:brightness(1)}
+  45%{transform:scale(1.025);filter:brightness(1.08)}
+  100%{transform:scale(.94);filter:brightness(.86)}
+}
+.cover-hint{
+  position:relative;
+  z-index:2;
+  color:var(--gold2);
+  font-family:"Cormorant Garamond",serif;
+  font-size:17px;
+  margin-top:4px
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:710px;
+  padding:0;
+  display:flex;align-items:flex-end;
+  background-size:cover;background-position:center 42%;background-repeat:no-repeat;
+  overflow:hidden
+}
+.hero:before{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.03) 0%,rgba(0,0,0,.07) 35%,rgba(4,6,8,.82) 78%,#06080b 100%),
+    linear-gradient(90deg,rgba(0,0,0,.14),transparent 35%,transparent 68%,rgba(0,0,0,.14))
+}
+.hero:after{
+  content:"";position:absolute;inset:14px;
+  border:1px solid rgba(214,166,77,.45);
+  border-radius:18px;pointer-events:none
+}
+.hero-content{
+  width:100%;position:relative;z-index:2;
+  padding:0 28px 70px;text-align:center
+}
+.hero-kicker{
+  font-family:"Cormorant Garamond",serif;
+  text-transform:uppercase;letter-spacing:.13em;
+  font-size:14px;color:#fff6e9
+}
+.hero h1{
+  font-family:Parisienne,cursive;
+  font-size:68px;line-height:.9;font-weight:400;
+  color:var(--gold);margin:18px 0;
+  text-shadow:0 4px 18px rgba(0,0,0,.62)
+}
+.hero-date{
+  font-family:"Cormorant Garamond",serif;font-size:24px;letter-spacing:.08em;color:#fff
+}
+
+/* ---------- INVITADO EN PÁGINA ---------- */
+.guest-strip{
+  padding:42px 22px 44px;
+  background:
+    radial-gradient(circle at 50% 100%,rgba(121,13,45,.42),transparent 46%),
+    linear-gradient(180deg,#070a0d,#18070d);
+}
+.guest-strip .hello{font-family:"Cormorant Garamond",serif;font-size:22px}
+.guest-strip .name{font-family:"Cormorant Garamond",serif;font-size:34px;color:var(--gold2);margin:5px 0 8px}
+.guest-strip .seatcopy{font-family:"Cormorant Garamond",serif;font-size:20px;line-height:1.45;color:#f3e8dc}
+
+/* ---------- FOTO + FRASE ---------- */
+.love-photo{
+  min-height:560px;background-size:cover;background-position:center;
+  position:relative;display:flex;align-items:flex-end
+}
+.love-photo:before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 42%,rgba(5,8,11,.23) 62%,#070a0d 100%)
+}
+.love-copy{
+  position:relative;z-index:2;width:100%;padding:54px 34px 34px;
+  font-family:"Cormorant Garamond",serif;font-size:27px;line-height:1.45
+}
+
+/* ---------- COUNTDOWN ---------- */
+.countdown{
+  background:#070a0d;
+  border-top:1px solid rgba(214,166,77,.18);
+  border-bottom:1px solid rgba(214,166,77,.18)
+}
+.count-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:9px;
+  margin-top:22px
+}
+.count-box{
+  padding:17px 4px 14px;border-radius:9px;
+  border:1px solid rgba(214,166,77,.55);
+  background:linear-gradient(180deg,#0d1115,#080b0e);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.015)
+}
+.count-num{
+  font-family:"Cormorant Garamond",serif;color:var(--gold2);
+  font-size:36px;line-height:1
+}
+.count-label{
+  text-transform:uppercase;color:#fff;font-size:8px;letter-spacing:.08em;margin-top:7px
+}
+
+/* ---------- EVENTOS ---------- */
+.events{background:#070a0d}
+.event-card{
+  background:linear-gradient(180deg,#fff9f1,#eee1d4);
+  color:var(--ink);
+  border-radius:13px;
+  padding:34px 20px 28px;
+  margin:14px 0;
+  border:1px solid rgba(214,166,77,.65);
+  box-shadow:var(--shadow);
+  overflow:hidden;position:relative
+}
+.event-card:before,.event-card:after{
+  content:"❦";position:absolute;color:#9a1238;font-size:42px;opacity:.14
+}
+.event-card:before{left:10px;bottom:4px;transform:rotate(-28deg)}
+.event-card:after{right:10px;top:4px;transform:rotate(24deg)}
+.event-icon{
+  width:68px;height:68px;border-radius:50%;margin:auto;
+  display:grid;place-items:center;font-size:28px;
+  background:linear-gradient(180deg,#8d1137,#5c071f);
+  color:var(--gold2);
+  box-shadow:0 8px 18px rgba(0,0,0,.18)
+}
+.event-card h3{
+  font-family:Parisienne,cursive;font-size:36px;font-weight:400;margin:14px 0 4px
+}
+.event-time{
+  font-family:"Cormorant Garamond",serif;font-size:27px;font-weight:600;color:#75102f
+}
+.event-place{
+  font-family:"Cormorant Garamond",serif;font-size:22px;line-height:1.4;margin:10px 0 16px
+}
+
+/* ---------- DETALLES ---------- */
+.dark-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+}
+.dark-card{
+  background:linear-gradient(180deg,#0c1116,#080c10);
+  border:1px solid rgba(214,166,77,.48);
+  border-radius:13px;padding:25px 14px;min-height:210px;
+  box-shadow:0 10px 24px rgba(0,0,0,.28)
+}
+.dark-card.full{grid-column:1/-1;min-height:0}
+.dark-icon{
+  width:58px;height:58px;margin:auto;border-radius:50%;
+  background:linear-gradient(180deg,#8c1237,#5a071e);
+  border:1px solid var(--gold);
+  display:grid;place-items:center;font-size:25px;color:var(--gold2)
+}
+.dark-card h3{
+  font-family:Parisienne,cursive;font-size:30px;font-weight:400;color:var(--gold);margin:12px 0 8px
+}
+.dark-card p{
+  font-family:"Cormorant Garamond",serif;font-size:18px;line-height:1.5;color:#fff
+}
+
+/* ---------- DRESS CODE ---------- */
+.dress-card{
+  background:linear-gradient(180deg,#fff9f1,#eee3d7);
+  color:#171717;border-radius:13px;padding:30px 20px;
+  border:1px solid rgba(214,166,77,.55)
+}
+.dress-card h3{
+  font-family:Parisienne,cursive;font-size:36px;margin:0 0 3px;font-weight:400
+}
+.swatches{display:flex;justify-content:center;gap:17px;margin:20px 0 4px}
+.swatch{
+  width:44px;height:44px;border-radius:50%;
+  box-shadow:0 4px 10px rgba(0,0,0,.18);border:1px solid rgba(0,0,0,.08)
+}
+
+/* ---------- VIDEO ---------- */
+.video-card{
+  height:290px;border-radius:13px;overflow:hidden;position:relative;
+  background-size:cover;background-position:center;
+  border:1px solid rgba(214,166,77,.55);
+  cursor:pointer
+}
+.video-card:before{
+  content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.58))
+}
+.play-btn{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:72px;height:72px;border-radius:50%;
+  border:2px solid white;background:rgba(0,0,0,.22);
+  display:grid;place-items:center;font-size:30px;color:white
+}
+.video-label{
+  position:absolute;left:0;right:0;bottom:18px;
+  font-family:"Cormorant Garamond",serif;font-size:22px
+}
+
+/* ---------- ITINERARIO ---------- */
+.timeline{
+  width:min(100%,390px);margin:22px auto 0;position:relative;text-align:left
+}
+.timeline:before{
+  content:"";position:absolute;left:27px;top:4px;bottom:4px;width:1px;background:var(--gold)
+}
+.tl-item{display:grid;grid-template-columns:58px 1fr;min-height:77px}
+.tl-icon{
+  width:38px;height:38px;border-radius:50%;margin-left:8px;
+  display:grid;place-items:center;
+  border:1px solid var(--gold);background:#79102f;color:var(--gold2);z-index:1
+}
+.tl-time{font-family:"Cormorant Garamond",serif;color:var(--gold2);font-size:20px}
+.tl-name{font-family:"Cormorant Garamond",serif;font-size:18px;color:#fff}
+
+/* ---------- GALERÍA ---------- */
+.gallery{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:22px
+}
+.gallery img{
+  width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center;border-radius:10px;
+  border:1px solid rgba(214,166,77,.55);
+  cursor:zoom-in;
+  transition:.25s;
+  background:#111
+}
+.gallery img:hover{transform:translateY(-2px) scale(1.015);filter:saturate(1.05)}
+.gallery-more{margin-top:18px}
+
+/* ---------- RSVP ---------- */
+.rsvp-card{
+  background:linear-gradient(180deg,#fff9f1,#eee3d7);
+  color:#171717;border:1px solid rgba(214,166,77,.55);
+  border-radius:13px;padding:30px 18px
+}
+.rsvp-card .section-title{color:#7b0d2e;font-size:38px}
+.rsvp-card p{font-family:"Cormorant Garamond",serif;font-size:18px;line-height:1.5}
+
+/* ---------- FOTO SHARE ---------- */
+.share-card{
+  background:linear-gradient(180deg,#0d1115,#080b0e);
+  border:1px solid rgba(214,166,77,.52);
+  border-radius:13px;padding:30px 18px
+}
+.qr{
+  width:126px;height:126px;margin:18px auto;background:
+  repeating-linear-gradient(45deg,#fff 0 6px,#111 6px 12px),
+  repeating-linear-gradient(-45deg,transparent 0 6px,#111 6px 12px);
+  border:8px solid #fff;box-shadow:0 7px 16px rgba(0,0,0,.3)
+}
+
+/* ---------- FOOTER ---------- */
+.footer{
+  background:linear-gradient(180deg,#710d2c,#480519);
+  color:var(--gold2);padding:30px 18px 36px;
+  font-family:Parisienne,cursive;font-size:28px;text-align:center;
+  border-top:1px solid var(--gold)
+}
+
+/* ---------- MÚSICA ---------- */
+.music-fab{
+  position:fixed;right:16px;bottom:18px;z-index:800;
+  width:52px;height:52px;border-radius:50%;
+  border:1px solid var(--gold);background:#770d2e;color:var(--gold2);
+  font-size:20px;box-shadow:0 10px 24px rgba(0,0,0,.42);cursor:pointer
+}
+.music-fab.spin{animation:spin 4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- LIGHTBOX ---------- */
+.lightbox{
+  position:fixed;z-index:20000;inset:0;display:none;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.94);backdrop-filter:blur(8px);padding:16px
+}
+.lightbox.show{display:flex}
+.lightbox img{max-width:94vw;max-height:87vh;object-fit:contain;border-radius:12px;border:1px solid rgba(214,166,77,.5)}
+.lb-close,.lb-prev,.lb-next{
+  position:absolute;border:none;color:#fff;background:rgba(121,13,45,.72);
+  border:1px solid rgba(214,166,77,.55);cursor:pointer;z-index:2
+}
+.lb-close{right:18px;top:18px;width:46px;height:46px;border-radius:50%;font-size:28px}
+.lb-prev,.lb-next{top:50%;transform:translateY(-50%);width:46px;height:70px;border-radius:12px;font-size:30px}
+.lb-prev{left:10px}.lb-next{right:10px}
+.lb-count{
+  position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+  color:var(--gold2);font-size:12px;letter-spacing:.12em
+}
+
+[hidden]{display:none!important}
+@media(max-width:390px){
+  .hero h1{font-size:58px}
+  .count-num{font-size:30px}
+  .dark-grid{grid-template-columns:1fr 1fr}
+  .envelope{width:min(340px,94%)}
+  .gallery{gap:7px}
+  .gallery img{border-radius:8px}
+}
+
+/* ---------- GENERADOR DE INVITADOS ---------- */
+.invite-generator{
+  position:fixed;z-index:30000;inset:0;
+  display:none;align-items:center;justify-content:center;
+  padding:18px;background:rgba(2,4,7,.92);backdrop-filter:blur(12px)
+}
+.invite-generator.show{display:flex}
+.generator-card{
+  width:min(480px,96vw);max-height:92vh;overflow:auto;
+  background:linear-gradient(180deg,#101419,#17070d);
+  border:1px solid rgba(214,166,77,.55);border-radius:22px;
+  padding:28px 22px;box-shadow:0 30px 80px rgba(0,0,0,.55);text-align:left
+}
+.generator-card h2{
+  font-family:Parisienne,cursive;color:var(--gold);font-size:38px;
+  font-weight:400;text-align:center;margin:0 0 5px
+}
+.generator-card .generator-sub{
+  text-align:center;color:#d8ccbe;font-family:"Cormorant Garamond",serif;
+  font-size:18px;line-height:1.4;margin-bottom:24px
+}
+.generator-label{
+  display:block;color:var(--gold2);font-size:10px;text-transform:uppercase;
+  letter-spacing:.13em;margin:14px 0 7px
+}
+.generator-input{
+  width:100%;padding:14px 13px;border-radius:9px;
+  border:1px solid rgba(214,166,77,.38);
+  background:#070a0d;color:#fff;font-size:15px;outline:none
+}
+.generator-input:focus{border-color:var(--gold)}
+.generator-row{display:grid;grid-template-columns:1fr 120px;gap:10px}
+.generator-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:18px}
+.generated-box{
+  margin-top:18px;padding:15px;border-radius:10px;background:#070a0d;
+  border:1px solid rgba(214,166,77,.3)
+}
+.generated-box textarea{
+  width:100%;min-height:92px;resize:vertical;background:transparent;color:#f6e9d8;
+  border:none;outline:none;font-size:12px;line-height:1.5
+}
+.generator-note{font-size:11px;color:#bcae9d;line-height:1.5;margin-top:12px}
+.generator-close{
+  float:right;width:38px;height:38px;border-radius:50%;cursor:pointer;
+  background:#710d2c;color:#fff;border:1px solid var(--gold);font-size:22px
+}
+.admin-fab{
+  position:fixed;left:16px;bottom:18px;z-index:900;
+  display:none;width:52px;height:52px;border-radius:50%;
+  border:1px solid var(--gold);background:#770d2e;color:var(--gold2);
+  font-size:21px;box-shadow:0 10px 24px rgba(0,0,0,.42);cursor:pointer
+}
+.admin-fab.show{display:block}
+.copy-ok{color:#9ee7a6!important}
+@media(max-width:390px){
+  .generator-row{grid-template-columns:1fr 100px}
+  .generator-actions{grid-template-columns:1fr}
+}
+
+
+/* ---------- FORMULARIOS EXTERNOS ---------- */
+.action-note{
+  font-family:"Cormorant Garamond",serif;
+  font-size:16px;
+  line-height:1.5;
+  color:#e9ddd0;
+  margin:10px auto 18px;
+  max-width:390px
+}
+.rsvp-actions{
+  display:grid;
+  gap:10px;
+  margin-top:18px
+}
+.rsvp-actions .btn{width:100%}
+.btn-whatsapp{
+  background:linear-gradient(180deg,#1ebe5d,#129447);
+  border-color:rgba(255,255,255,.25)
+}
+.qr-real{
+  width:148px;
+  min-height:148px;
+  margin:18px auto;
+  padding:10px;
+  background:#fff;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  box-shadow:0 8px 22px rgba(0,0,0,.32)
+}
+.qr-real img,.qr-real canvas{display:block!important;max-width:100%;height:auto!important}
+.photo-form-mini{
+  font-size:11px;
+  color:#cdbfae;
+  margin-top:12px;
+  line-height:1.45
+}
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body class="lock">
+
+<!-- APERTURA -->
+<div class="cover" id="cover">
+  <div class="cover-inner">
+    <div class="eyebrow">Invitado especial</div>
+    <div class="guest">
+      <span id="welcomeText"></span>
+      <strong id="guestName"></strong>
+    </div>
+    <p class="seats" id="guestSeats"></p>
+
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Abrir invitación">
+      <img class="envelope-img" src="assets/sobre_rojo_hiperrealista.webp" alt="Sobre rojo con sello dorado">
+    </div>
+    <div class="cover-hint">Toca el sobre para abrir</div>
+  </div>
+</div>
+
+<main class="page">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-content reveal">
+      <div class="hero-kicker">— Nuestra boda —</div>
+      <h1 id="coupleNames"></h1>
+      <div class="hero-date" id="heroDate"></div>
+    </div>
+  </section>
+
+  <!-- INVITADO -->
+  <section class="guest-strip">
+    <div class="reveal">
+      <div class="hello">Hola,</div>
+      <div class="name" id="insideGuest"></div>
+      <div class="seatcopy" id="insideSeats"></div>
+      <div class="gold-line"></div>
+    </div>
+  </section>
+
+  <!-- FOTO + FRASE -->
+  <div class="love-photo" id="lovePhoto">
+    <div class="love-copy reveal" id="loveQuote"></div>
+  </div>
+
+  <!-- CUENTA REGRESIVA -->
+  <section class="countdown">
+    <div class="reveal">
+      <h2 class="section-title">Faltan ♡</h2>
+      <div class="count-grid">
+        <div class="count-box"><div class="count-num" id="days">00</div><div class="count-label">Días</div></div>
+        <div class="count-box"><div class="count-num" id="hours">00</div><div class="count-label">Horas</div></div>
+        <div class="count-box"><div class="count-num" id="minutes">00</div><div class="count-label">Minutos</div></div>
+        <div class="count-box"><div class="count-num" id="seconds">00</div><div class="count-label">Segundos</div></div>
+      </div>
+      <p class="serif" style="font-size:20px;color:var(--gold);margin:24px 0 0">Acompáñanos en este día tan especial</p>
+    </div>
+  </section>
+
+  <!-- CEREMONIA Y RECEPCIÓN -->
+  <section class="events">
+    <div class="reveal">
+      <div id="events"></div>
+    </div>
+  </section>
+
+  <!-- DETALLES -->
+  <section>
+    <div class="reveal">
+      <div class="dark-grid">
+        <div class="dark-card">
+          <div class="dark-icon">✉</div>
+          <h3>Lluvia de Sobres</h3>
+          <p id="giftText"></p>
+        </div>
+        <div class="dark-card">
+          <div class="dark-icon">♙♙</div>
+          <h3>Solo Adultos</h3>
+          <p id="adultText"></p>
+        </div>
+        <div class="dark-card full">
+          <div class="dark-icon">♫</div>
+          <h3>Música</h3>
+          <p>¿Qué canción no puede faltar en nuestra boda? Ayúdanos a crear una celebración inolvidable.</p>
+          <a class="btn" id="songBtn" target="_blank" rel="noopener">Sugerir canción</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRESS -->
+  <section style="padding-top:0">
+    <div class="dress-card reveal">
+      <h3>Dress Code</h3>
+      <div class="serif" style="font-size:22px">Formal</div>
+      <div class="swatches">
+        <span class="swatch" style="background:#7d0c2d"></span>
+        <span class="swatch" style="background:#0d1b28"></span>
+        <span class="swatch" style="background:#c9953d"></span>
+        <span class="swatch" style="background:#eee0d0"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section style="padding-top:0">
+    <div class="video-card reveal" id="videoCard">
+      <div class="play-btn">▶</div>
+      <div class="video-label">Ver video</div>
+    </div>
+  </section>
+
+  <!-- ITINERARIO -->
+  <section id="itinerarySection">
+    <div class="reveal">
+      <h2 class="section-title">Itinerario</h2>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="gallerySection">
+    <div class="reveal">
+      <h2 class="section-title">Galería ♡</h2>
+      <div class="gallery" id="gallery"></div>
+      <div class="gallery-more"><button class="btn" id="openGalleryBtn">Ver todas las fotos</button></div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section>
+    <div class="rsvp-card reveal">
+      <h2 class="section-title">Confirma tu asistencia ♡</h2>
+      <p id="rsvpDeadline"></p>
+      <p id="rsvpGuest" style="font-weight:600"></p>
+      <p class="serif" style="font-size:18px">Diligencia nuestro formulario para confirmar si podrás acompañarnos.</p>
+
+      <div class="rsvp-actions">
+        <a class="btn" id="rsvpFormBtn" target="_blank" rel="noopener">Confirmar asistencia</a>
+        <a class="btn btn-whatsapp" id="whatsappBtn" target="_blank" rel="noopener">¿Tienes dudas? Escríbenos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARTIR FOTOS -->
+  <section id="photoShareSection" style="padding-top:0">
+    <div class="share-card reveal">
+      <h2 class="section-title" style="font-size:34px">Comparte tus fotos con nosotros ♡</h2>
+      <p class="serif" style="font-size:18px;line-height:1.5">
+        Sube tus fotos y videos del evento mediante nuestro formulario para que podamos guardar cada recuerdo.
+      </p>
+      <div class="qr-real" id="photoFormQr" aria-label="Código QR para abrir el formulario de fotos"></div>
+      <a class="btn" id="photoShareBtn" target="_blank" rel="noopener">Subir fotos y videos</a>
+      <div class="photo-form-mini">También puedes escanear el código QR para abrir el formulario de carga.</div>
+    </div>
+  </section>
+
+  <div class="footer" id="footer"></div>
+</main>
+
+<button class="music-fab" id="musicBtn" aria-label="Música">♪</button>
+<audio id="music" loop preload="none"></audio>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose">×</button>
+  <button class="lb-prev" id="lbPrev">‹</button>
+  <img id="lbImage" alt="Fotografía ampliada">
+  <button class="lb-next" id="lbNext">›</button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
+<script>
+/* ============================================================
+   PLANTILLA MAESTRA — SOLO CAMBIA ESTE BLOQUE PARA OTRA PAREJA
+   ============================================================ */
+const WEDDING_CONFIG = {
+  couple:{
+    person1:'Valentina',
+    person2:'Santiago'
+  },
+
+  date:{
+    iso:'2027-05-22T17:00:00-05:00',
+    display:'22 · MAYO · 2027',
+    rsvpDeadline:'30 de abril de 2027',
+    endIso:'2027-05-23T01:00:00-05:00'
+  },
+
+  images:{
+    hero:'assets/portada.jpg',
+    couple:'assets/pareja.jpg',
+    gallery:[
+      'assets/foto1.jpg',
+      'assets/foto2.jpg',
+      'assets/foto3.jpg',
+      'assets/foto4.jpg',
+      'assets/foto5.jpg',
+      'assets/foto6.jpg'
+    ],
+    video:'assets/video.jpg'
+  },
+
+  texts:{
+    welcome:'Este sueño no estaría completo sin ti.',
+    loveQuote:'Y así, sin buscarte, te encontré y supe que contigo quiero todo.',
+    gift:'Tu presencia es nuestro mejor regalo; si deseas tener un detalle con nosotros, agradecemos sea en sobre.',
+    adults:'Este será un evento solo para adultos. ¡Gracias por entender!'
+  },
+
+  events:[
+    {
+      icon:'♱',
+      title:'Ceremonia Religiosa',
+      time:'5:00 PM',
+      place:'Iglesia San Juan Pablo II',
+      address:'Carrera 25 # 18-45 · Sincelejo, Sucre',
+      map:'https://maps.google.com'
+    },
+    {
+      icon:'🥂',
+      title:'Recepción',
+      time:'7:00 PM',
+      place:'Finca Villa Loreana',
+      address:'Vía Tolú, km 5 · Sincelejo, Sucre',
+      map:'https://maps.google.com'
+    }
+  ],
+
+  itinerary:[
+    {icon:'♙',time:'5:00 PM',name:'Ceremonia Religiosa'},
+    {icon:'♜',time:'6:30 PM',name:'Cóctel de Bienvenida'},
+    {icon:'♨',time:'7:30 PM',name:'Cena'},
+    {icon:'♫',time:'8:30 PM',name:'Fiesta y Baile'},
+    {icon:'♡',time:'12:00 AM',name:'Fin del evento'}
+  ],
+
+  /* ============================================================
+     AQUÍ PEGAS LOS 3 GOOGLE FORMS DE CADA BODA
+
+     1. songForm  -> sugerencias de canciones
+     2. rsvpForm  -> confirmación de asistencia
+     3. photoForm -> carga de fotos y videos
+     ============================================================ */
+  links:{
+    songForm:'https://docs.google.com/forms/d/e/1FAIpQLScN-Vwn5eQKMJ-dKQImDnlIqD8V7-jLAdOipbNeAtg02UrWqA/viewform?usp=header',
+    rsvpForm:'https://docs.google.com/forms/d/e/1FAIpQLSf-MhKJ9pBpv3a_eQ2XnimWXwq-9ecqfACPUJOyaw6nPVCn_w/viewform?usp=publish-editor',
+    photoForm:'https://docs.google.com/forms/d/e/1FAIpQLSd9eWdF-7DtaXXtGYtv6B2LhSaeTVgsmkseGgw_v9vPjbbyqg/viewform?usp=publish-editor',
+
+    whatsappNumber:'573001234567',
+    whatsappMessage:'Hola, tengo una duda sobre la boda.',
+
+    video:''
+  },
+
+  /* OPCIONAL:
+     Para prellenar nombre y cupos en Google Forms,
+     pega aquí los entry.xxxxx reales de cada formulario.
+  */
+  formPrefill:{
+    song:{ guestEntry:'', seatsEntry:'' },
+    rsvp:{ guestEntry:'', seatsEntry:'' },
+    photos:{ guestEntry:'', seatsEntry:'' }
+  },
+
+  music:{
+    src:'assets/musica.mp3',
+    autoplayAfterOpen:true
+  }
+};
+
+const $=id=>document.getElementById(id);
+const cfg=WEDDING_CONFIG;
+
+const qs=new URLSearchParams(location.search);
+const guest=(qs.get('nombre')||'Invitado Especial').replace(/\+/g,' ');
+const seats=Math.max(1,parseInt(qs.get('cupos')||'1',10));
+
+
+function buildFormUrl(baseUrl, prefill={}){
+  if(!baseUrl) return '#';
+  try{
+    const url=new URL(baseUrl);
+
+    Object.entries(prefill).forEach(([entryId,value])=>{
+      if(entryId && value !== undefined && value !== null && value !== ''){
+        url.searchParams.set(entryId,String(value));
+      }
+    });
+
+    return url.toString();
+  }catch(e){
+    return baseUrl;
+  }
+}
+
+function renderPhotoFormQR(){
+  const el=$('photoFormQr');
+  if(!el || !cfg.links.photoForm) return;
+  el.innerHTML='';
+  if(window.QRCode){
+    new QRCode(el,{
+      text:buildFormUrl(cfg.links.photoForm,{
+        [cfg.formPrefill.photos.guestEntry]:guest,
+        [cfg.formPrefill.photos.seatsEntry]:seats
+      }),
+      width:128,
+      height:128,
+      correctLevel:QRCode.CorrectLevel.M
+    });
+  }else{
+    el.innerHTML='<span style="color:#111;font-size:12px">QR no disponible</span>';
+  }
+}
+
+function render(){
+  const names=`${cfg.couple.person1} & ${cfg.couple.person2}`;
+  $('pageTitle').textContent=`${names} | Invitación`;
+  $('coupleNames').innerHTML=`${cfg.couple.person1}<br>&<br>${cfg.couple.person2}`;
+  $('heroDate').textContent=cfg.date.display;
+  $('hero').style.backgroundImage=`url('${cfg.images.hero}')`;
+  $('lovePhoto').style.backgroundImage=`url('${cfg.images.couple}')`;
+  $('videoCard').style.backgroundImage=`url('${cfg.images.video || cfg.images.couple}')`;
+
+  $('welcomeText').textContent=cfg.texts.welcome;
+  $('guestName').textContent=guest;
+  $('insideGuest').textContent=guest;
+
+  const seatSentence=`Hemos reservado ${seats} ${seats===1?'cupo':'cupos'} para ${seats===1?'ti':'ustedes'}.`;
+  $('guestSeats').textContent=seatSentence;
+  $('insideSeats').innerHTML=`Hemos reservado<br><strong style="color:var(--gold2)">${seats}</strong> ${seats===1?'cupo para ti':'cupos para ustedes'}`;
+  $('rsvpGuest').textContent=`${guest} · ${seats} ${seats===1?'cupo':'cupos'}`;
+  $('loveQuote').textContent=cfg.texts.loveQuote;
+
+  $('giftText').textContent=cfg.texts.gift;
+  $('adultText').textContent=cfg.texts.adults;
+  $('songBtn').href=buildFormUrl(cfg.links.songForm,{
+    [cfg.formPrefill.song.guestEntry]:guest,
+    [cfg.formPrefill.song.seatsEntry]:seats
+  });
+
+  $('events').innerHTML=cfg.events.map(e=>`
+    <div class="event-card">
+      <div class="event-icon">${e.icon}</div>
+      <h3>${e.title}</h3>
+      <div class="event-time">${e.time}</div>
+      <div class="event-place"><strong>${e.place}</strong><br>${e.address}</div>
+      <a class="btn" href="${e.map}" target="_blank" rel="noopener">⌖ Ver ubicación</a>
+    </div>
+  `).join('');
+
+  $('timeline').innerHTML=cfg.itinerary.map(e=>`
+    <div class="tl-item">
+      <div class="tl-icon">${e.icon}</div>
+      <div>
+        <div class="tl-time">${e.time}</div>
+        <div class="tl-name">${e.name}</div>
+      </div>
+    </div>
+  `).join('');
+
+  const valid=cfg.images.gallery.filter(Boolean);
+  $('gallery').innerHTML=valid.map((src,i)=>`<img src="${src}" alt="Foto ${i+1} de ${names}" loading="lazy" data-index="${i}">`).join('');
+
+  $('rsvpDeadline').textContent=`Confírmanos tu asistencia antes del ${cfg.date.rsvpDeadline}.`;
+  $('rsvpFormBtn').href=buildFormUrl(cfg.links.rsvpForm,{
+    [cfg.formPrefill.rsvp.guestEntry]:guest,
+    [cfg.formPrefill.rsvp.seatsEntry]:seats
+  });
+
+  const waText=encodeURIComponent(`${cfg.links.whatsappMessage} Soy ${guest}.`);
+  $('whatsappBtn').href=`https://wa.me/${cfg.links.whatsappNumber}?text=${waText}`;
+
+  $('photoShareBtn').href=buildFormUrl(cfg.links.photoForm,{
+    [cfg.formPrefill.photos.guestEntry]:guest,
+    [cfg.formPrefill.photos.seatsEntry]:seats
+  });
+  renderPhotoFormQR();
+
+  $('footer').textContent='¡No podemos esperar para celebrar este día contigo!';
+
+  if(cfg.music.src){$('music').src=cfg.music.src;$('music').load()}
+
+  bindGallery();
+}
+
+function tick(){
+  let d=new Date(cfg.date.iso).getTime()-Date.now();
+  if(d<0)d=0;
+  $('days').textContent=String(Math.floor(d/86400000)).padStart(2,'0');
+  $('hours').textContent=String(Math.floor(d%86400000/3600000)).padStart(2,'0');
+  $('minutes').textContent=String(Math.floor(d%3600000/60000)).padStart(2,'0');
+  $('seconds').textContent=String(Math.floor(d%60000/1000)).padStart(2,'0');
+}
+
+/* apertura */
+const cover=$('cover'), envelope=$('envelope');
+async function openInvite(){
+  envelope.classList.add('open');
+  setTimeout(()=>{
+    cover.classList.add('hidden');
+    document.body.classList.remove('lock');
+  },620);
+  if(cfg.music.autoplayAfterOpen&&cfg.music.src){
+    try{await $('music').play();$('musicBtn').classList.add('spin')}catch(e){}
+  }
+}
+envelope.addEventListener('click',openInvite);
+envelope.addEventListener('keydown',e=>{
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();openInvite()}
+});
+
+/* música */
+let playing=false;
+$('musicBtn').addEventListener('click',async()=>{
+  if(!cfg.music.src){alert('Agrega la canción en WEDDING_CONFIG.music.src');return}
+  try{
+    if(playing){$('music').pause();$('musicBtn').classList.remove('spin')}
+    else{await $('music').play();$('musicBtn').classList.add('spin')}
+    playing=!playing;
+  }catch(e){}
+});
+
+/* video */
+$('videoCard').addEventListener('click',()=>{
+  if(cfg.links.video) window.open(cfg.links.video,'_blank');
+  else alert('Agrega el enlace del video en WEDDING_CONFIG.links.video');
+});
+
+/* lightbox */
+let lbImages=[],lbIndex=0;
+function bindGallery(){
+  lbImages=[...document.querySelectorAll('#gallery img')];
+  lbImages.forEach((img,i)=>img.onclick=()=>openLB(i));
+  $('openGalleryBtn').onclick=()=>openLB(0);
+}
+function openLB(i){
+  if(!lbImages.length)return;
+  lbIndex=i;
+  $('lightbox').classList.add('show');
+  document.body.style.overflow='hidden';
+  updateLB();
+}
+function updateLB(){
+  $('lbImage').src=lbImages[lbIndex].src;
+  $('lbCount').textContent=`${lbIndex+1} / ${lbImages.length}`;
+}
+function closeLB(){
+  $('lightbox').classList.remove('show');
+  document.body.style.overflow='';
+}
+function moveLB(step){
+  lbIndex=(lbIndex+step+lbImages.length)%lbImages.length;
+  updateLB();
+}
+$('lbClose').onclick=closeLB;
+$('lbPrev').onclick=()=>moveLB(-1);
+$('lbNext').onclick=()=>moveLB(1);
+$('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')closeLB()});
+document.addEventListener('keydown',e=>{
+  if(!$('lightbox').classList.contains('show'))return;
+  if(e.key==='Escape')closeLB();
+  if(e.key==='ArrowLeft')moveLB(-1);
+  if(e.key==='ArrowRight')moveLB(1);
+});
+let touchX=0;
+$('lightbox').addEventListener('touchstart',e=>touchX=e.changedTouches[0].screenX,{passive:true});
+$('lightbox').addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].screenX-touchX;
+  if(Math.abs(dx)>45)moveLB(dx>0?-1:1);
+},{passive:true});
+
+/* reveal */
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting)e.target.classList.add('show')
+}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+render();
+tick();
+setInterval(tick,1000);
+
+/* ============================================================
+   GENERADOR PRIVADO DE ENLACES PARA INVITADOS
+   Abrir: index.html?admin=1
+   ============================================================ */
+const adminMode = new URLSearchParams(location.search).get('admin') === '1';
+const adminFab = document.getElementById('adminFab');
+const inviteGenerator = document.getElementById('inviteGenerator');
+
+if(adminMode){
+  adminFab.classList.add('show');
+  // En modo administrador no obliga a abrir el sobre primero.
+  setTimeout(()=>{
+    document.getElementById('cover').classList.add('hidden');
+    document.body.classList.remove('lock');
+    inviteGenerator.classList.add('show');
+    inviteGenerator.setAttribute('aria-hidden','false');
+  },150);
+}
+
+function openGenerator(){
+  inviteGenerator.classList.add('show');
+  inviteGenerator.setAttribute('aria-hidden','false');
+}
+function closeGenerator(){
+  inviteGenerator.classList.remove('show');
+  inviteGenerator.setAttribute('aria-hidden','true');
+}
+adminFab.addEventListener('click',openGenerator);
+document.getElementById('generatorClose').addEventListener('click',closeGenerator);
+inviteGenerator.addEventListener('click',e=>{
+  if(e.target===inviteGenerator) closeGenerator();
+});
+
+function makeGuestUrl(){
+  const name=document.getElementById('genName').value.trim();
+  let seats=parseInt(document.getElementById('genSeats').value||'1',10);
+  seats=Math.max(1,Math.min(20,seats));
+  if(!name){
+    alert('Escribe el nombre del invitado o de la familia.');
+    document.getElementById('genName').focus();
+    return null;
+  }
+
+  // Usa la dirección actual, eliminando cualquier parámetro anterior.
+  const url=new URL(location.href);
+  url.search='';
+  url.hash='';
+  url.searchParams.set('nombre',name);
+  url.searchParams.set('cupos',String(seats));
+  return url.toString();
+}
+
+function showGenerated(){
+  const url=makeGuestUrl();
+  if(!url)return null;
+  document.getElementById('generatedLink').value=url;
+  document.getElementById('generatedBox').hidden=false;
+  return url;
+}
+
+document.getElementById('generateLinkBtn').addEventListener('click',showGenerated);
+
+document.getElementById('previewInviteBtn').addEventListener('click',()=>{
+  const url=showGenerated();
+  if(url) window.open(url,'_blank');
+});
+
+document.getElementById('copyLinkBtn').addEventListener('click',async()=>{
+  const url=document.getElementById('generatedLink').value || showGenerated();
+  if(!url)return;
+  try{
+    await navigator.clipboard.writeText(url);
+  }catch(e){
+    const ta=document.getElementById('generatedLink');
+    ta.select();
+    document.execCommand('copy');
+  }
+  const btn=document.getElementById('copyLinkBtn');
+  const old=btn.textContent;
+  btn.textContent='✓ Copiado';
+  btn.classList.add('copy-ok');
+  setTimeout(()=>{btn.textContent=old;btn.classList.remove('copy-ok')},1600);
+});
+
+document.getElementById('shareLinkBtn').addEventListener('click',async()=>{
+  const url=document.getElementById('generatedLink').value || showGenerated();
+  if(!url)return;
+  const name=document.getElementById('genName').value.trim();
+  const data={
+    title:`Invitación ${WEDDING_CONFIG.couple.person1} & ${WEDDING_CONFIG.couple.person2}`,
+    text:`${name}, tenemos una invitación especial para ti.`,
+    url
+  };
+  if(navigator.share){
+    try{await navigator.share(data)}catch(e){}
+  }else{
+    try{await navigator.clipboard.writeText(url);alert('Enlace copiado. Ya puedes enviarlo por WhatsApp.')}
+    catch(e){alert(url)}
+  }
+});
+
+document.getElementById('genName').addEventListener('keydown',e=>{
+  if(e.key==='Enter') showGenerated();
+});
+
+</script>
+
+<button class="admin-fab" id="adminFab" aria-label="Generador de invitados" title="Generador de invitados">✦</button>
+
+<div class="invite-generator" id="inviteGenerator" aria-hidden="true">
+  <div class="generator-card">
+    <button class="generator-close" id="generatorClose" aria-label="Cerrar">×</button>
+    <h2>Generar invitación</h2>
+    <div class="generator-sub">Crea el enlace personalizado de cada invitado sin modificar el código.</div>
+
+    <label class="generator-label" for="genName">Nombre del invitado o familia</label>
+    <input class="generator-input" id="genName" type="text" placeholder="Ej. Liseth Chamorro">
+
+    <div class="generator-row">
+      <div>
+        <label class="generator-label" for="genSeats">Número de cupos</label>
+        <input class="generator-input" id="genSeats" type="number" min="1" max="20" value="1">
+      </div>
+      <div>
+        <label class="generator-label" for="genLabel">Tipo</label>
+        <select class="generator-input" id="genLabel">
+          <option value="persona">Persona</option>
+          <option value="familia">Familia</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="generator-actions">
+      <button class="btn" id="generateLinkBtn">Generar enlace</button>
+      <button class="btn btn-gold" id="previewInviteBtn">Vista previa</button>
+    </div>
+
+    <div class="generated-box" id="generatedBox" hidden>
+      <label class="generator-label">Enlace generado</label>
+      <textarea id="generatedLink" readonly></textarea>
+      <div class="generator-actions">
+        <button class="btn" id="copyLinkBtn">Copiar enlace</button>
+        <button class="btn btn-gold" id="shareLinkBtn">Compartir</button>
+      </div>
+    </div>
+
+    <div class="generator-note">
+      Este panel solo aparece al abrir la invitación con <strong>?admin=1</strong>.
+      Los invitados nunca verán el generador.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
