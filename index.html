@@ -325,40 +325,210 @@ section{position:relative;padding:58px 20px;text-align:center}
   font-family:"Cormorant Garamond",serif;font-size:18px;line-height:1.5;color:#fff
 }
 
-/* ---------- DRESS CODE ---------- */
+/* ---------- DRESS CODE PREMIUM ---------- */
 .dress-card{
-  background:linear-gradient(180deg,#fff9f1,#eee3d7);
-  color:#171717;border-radius:13px;padding:30px 20px;
-  border:1px solid rgba(214,166,77,.55)
+  background:linear-gradient(180deg,#fffaf3,#eee1d4);
+  color:#171717;
+  border-radius:16px;
+  padding:32px 18px 28px;
+  border:1px solid rgba(214,166,77,.62);
+  box-shadow:0 18px 38px rgba(0,0,0,.20);
+  overflow:hidden;
+  position:relative
+}
+.dress-card:before{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border:1px solid rgba(121,13,45,.10);
+  border-radius:12px;
+  pointer-events:none
 }
 .dress-card h3{
-  font-family:Parisienne,cursive;font-size:36px;margin:0 0 3px;font-weight:400
+  position:relative;
+  font-family:Parisienne,cursive;
+  font-size:40px;
+  margin:0 0 4px;
+  font-weight:400;
+  color:#6f0d2b
 }
-.swatches{display:flex;justify-content:center;gap:17px;margin:20px 0 4px}
+.dress-intro{
+  position:relative;
+  font-family:"Cormorant Garamond",serif;
+  font-size:20px;
+  line-height:1.45;
+  margin:0 auto 22px;
+  color:#3c342f
+}
+.dress-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:14px
+}
+.dress-person{
+  background:rgba(255,255,255,.58);
+  border:1px solid rgba(121,13,45,.14);
+  border-radius:14px;
+  padding:20px 12px 18px;
+  min-height:236px
+}
+.dress-icon{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  margin:0 auto 10px;
+  display:grid;
+  place-items:center;
+  color:var(--gold2);
+  font-size:29px;
+  background:linear-gradient(180deg,#8d1137,#5b071f);
+  border:1px solid #c99b43;
+  box-shadow:0 8px 18px rgba(0,0,0,.17)
+}
+.dress-person h4{
+  font-family:"Cormorant Garamond",serif;
+  font-size:24px;
+  margin:4px 0 6px;
+  color:#6f0d2b
+}
+.dress-type{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+  color:#7d695a;
+  margin-bottom:10px
+}
+.dress-desc{
+  font-family:"Cormorant Garamond",serif;
+  font-size:17px;
+  line-height:1.4;
+  color:#2f2925;
+  min-height:48px
+}
+.swatches{
+  display:flex;
+  justify-content:center;
+  gap:9px;
+  margin:14px 0 0
+}
 .swatch{
-  width:44px;height:44px;border-radius:50%;
-  box-shadow:0 4px 10px rgba(0,0,0,.18);border:1px solid rgba(0,0,0,.08)
+  width:31px;
+  height:31px;
+  border-radius:50%;
+  box-shadow:0 4px 10px rgba(0,0,0,.16);
+  border:1px solid rgba(0,0,0,.08)
+}
+.dress-note{
+  position:relative;
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid rgba(121,13,45,.13);
+  font-family:"Cormorant Garamond",serif;
+  font-size:16px;
+  color:#67584e
+}
+
+/* ---------- INDICADOR DESLIZAR ---------- */
+.scroll-guide{
+  position:fixed;
+  z-index:750;
+  left:50%;
+  bottom:22px;
+  transform:translateX(-50%) translateY(18px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:3px;
+  color:var(--gold2);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .45s ease,transform .45s ease,visibility .45s ease;
+  text-shadow:0 2px 8px rgba(0,0,0,.75)
+}
+.scroll-guide.show{
+  opacity:1;
+  visibility:visible;
+  transform:translateX(-50%) translateY(0)
+}
+.scroll-guide span{
+  font-family:"Cormorant Garamond",serif;
+  font-size:14px;
+  letter-spacing:.05em
+}
+.scroll-arrow{
+  font-size:25px;
+  line-height:1;
+  animation:scrollBounce 1.25s ease-in-out infinite
+}
+@keyframes scrollBounce{
+  0%,100%{transform:translateY(0);opacity:.55}
+  50%{transform:translateY(7px);opacity:1}
 }
 
 /* ---------- VIDEO ---------- */
 .video-card{
-  height:290px;border-radius:13px;overflow:hidden;position:relative;
-  background-size:cover;background-position:center;
+  height:290px;
+  border-radius:13px;
+  overflow:hidden;
+  position:relative;
   border:1px solid rgba(214,166,77,.55);
-  cursor:pointer
+  background:#05080b;
+  box-shadow:0 14px 30px rgba(0,0,0,.28)
 }
-.video-card:before{
-  content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.58))
+.wedding-video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  background:#000
+}
+.video-cover{
+  position:absolute;
+  inset:0;
+  cursor:pointer;
+  background-size:cover;
+  background-position:center;
+  transition:opacity .35s ease,visibility .35s ease
+}
+.video-cover:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.52))
+}
+.video-cover.hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none
 }
 .play-btn{
-  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  width:72px;height:72px;border-radius:50%;
-  border:2px solid white;background:rgba(0,0,0,.22);
-  display:grid;place-items:center;font-size:30px;color:white
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  border:2px solid white;
+  background:rgba(0,0,0,.22);
+  display:grid;
+  place-items:center;
+  font-size:30px;
+  color:white;
+  z-index:2
 }
 .video-label{
-  position:absolute;left:0;right:0;bottom:18px;
-  font-family:"Cormorant Garamond",serif;font-size:22px
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:18px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:22px;
+  color:#fff;
+  z-index:2
 }
 
 /* ---------- ITINERARIO ---------- */
@@ -458,6 +628,8 @@ section{position:relative;padding:58px 20px;text-align:center}
   .envelope{width:min(340px,94%)}
   .gallery{gap:7px}
   .gallery img{border-radius:8px}
+  .dress-grid{grid-template-columns:1fr}
+  .dress-person{min-height:0}
 }
 
 /* ---------- GENERADOR DE INVITADOS ---------- */
@@ -575,7 +747,7 @@ section{position:relative;padding:58px 20px;text-align:center}
     <p class="seats" id="guestSeats"></p>
 
     <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Abrir invitación">
-      <img class="envelope-img" src="assets/sobre_rojo_hiperrealista.webp" alt="Sobre rojo con sello dorado">
+      <img class="envelope-img" src="sobre_rojo_hiperrealista.webp" alt="Sobre rojo con sello dorado">
     </div>
     <div class="cover-hint">Toca el sobre para abrir</div>
   </div>
@@ -652,25 +824,62 @@ section{position:relative;padding:58px 20px;text-align:center}
     </div>
   </section>
 
-  <!-- DRESS -->
+  <!-- DRESS CODE -->
   <section style="padding-top:0">
     <div class="dress-card reveal">
       <h3>Dress Code</h3>
-      <div class="serif" style="font-size:22px">Formal</div>
-      <div class="swatches">
-        <span class="swatch" style="background:#7d0c2d"></span>
-        <span class="swatch" style="background:#0d1b28"></span>
-        <span class="swatch" style="background:#c9953d"></span>
-        <span class="swatch" style="background:#eee0d0"></span>
+      <p class="dress-intro">Código de vestuario <strong>Formal</strong></p>
+
+      <div class="dress-grid">
+
+        <div class="dress-person">
+          <div class="dress-icon">♔</div>
+          <h4>Caballeros</h4>
+          <div class="dress-type">Formal elegante</div>
+          <div class="dress-desc">
+            Traje completo, camisa formal y zapatos de vestir.
+          </div>
+          <div class="swatches" aria-label="Colores sugeridos para caballeros">
+            <span class="swatch" style="background:#0d1b28" title="Azul noche"></span>
+            <span class="swatch" style="background:#222222" title="Negro"></span>
+            <span class="swatch" style="background:#6b625b" title="Gris"></span>
+          </div>
+        </div>
+
+        <div class="dress-person">
+          <div class="dress-icon">♕</div>
+          <h4>Damas</h4>
+          <div class="dress-type">Formal elegante</div>
+          <div class="dress-desc">
+            Vestido largo o midi elegante y calzado formal.
+          </div>
+          <div class="swatches" aria-label="Colores sugeridos para damas">
+            <span class="swatch" style="background:#7d0c2d" title="Vino"></span>
+            <span class="swatch" style="background:#c9953d" title="Dorado"></span>
+            <span class="swatch" style="background:#31594a" title="Verde"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="dress-note">
+        Los colores mostrados son una guía de inspiración para este modelo.
       </div>
     </div>
   </section>
 
   <!-- VIDEO -->
-  <section style="padding-top:0">
+  <section style="padding-top:0" id="videoSection">
     <div class="video-card reveal" id="videoCard">
-      <div class="play-btn">▶</div>
-      <div class="video-label">Ver video</div>
+      <video class="wedding-video" id="weddingVideo" playsinline preload="metadata" poster="video.jpg">
+        <source src="boda.mp4" type="video/mp4">
+        Tu navegador no puede reproducir este video.
+      </video>
+
+      <div class="video-cover" id="videoCover" role="button" tabindex="0" aria-label="Reproducir video">
+        <div class="play-btn">▶</div>
+        <div class="video-label">Ver video</div>
+      </div>
     </div>
   </section>
 
@@ -724,6 +933,11 @@ section{position:relative;padding:58px 20px;text-align:center}
 
 <button class="music-fab" id="musicBtn" aria-label="Música">♪</button>
 <audio id="music" loop preload="none"></audio>
+
+<div class="scroll-guide" id="scrollGuide" aria-hidden="true">
+  <span>Desliza hacia abajo</span>
+  <div class="scroll-arrow">⌄</div>
+</div>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
@@ -782,6 +996,9 @@ section{position:relative;padding:58px 20px;text-align:center}
 
 <script>
 /* ============================================================
+   ARCHIVOS MULTIMEDIA EN LA MISMA CARPETA QUE index.html
+   Video principal: boda.mp4 | Portada del video: video.jpg
+
    PLANTILLA MAESTRA — SOLO CAMBIA ESTE BLOQUE PARA OTRA PAREJA
    ============================================================ */
 const WEDDING_CONFIG = {
@@ -798,17 +1015,19 @@ const WEDDING_CONFIG = {
   },
 
   images:{
-    hero:'assets/portada.jpg',
-    couple:'assets/pareja.jpg',
+    hero:'portada.jpg',
+    couple:'pareja.jpg',
     gallery:[
-      'assets/foto1.jpg',
-      'assets/foto2.jpg',
-      'assets/foto3.jpg',
-      'assets/foto4.jpg',
-      'assets/foto5.jpg',
-      'assets/foto6.jpg'
+      'foto1.jpg',
+      'foto2.jpg',
+      'foto3.jpg',
+      'foto4.jpg',
+      'foto5.jpg',
+      'foto6.jpg'
     ],
-    video:'assets/video.jpg'
+    video:'video.jpg',
+    videoFile:'boda.mp4',
+    videoEnabled:true
   },
 
   texts:{
@@ -823,9 +1042,9 @@ const WEDDING_CONFIG = {
       icon:'♱',
       title:'Ceremonia Religiosa',
       time:'5:00 PM',
-      place:'Iglesia Parroquia San José de Corozal',
-      address:'Corozal-San Juan De Betulia #282 · Corozal, Sucre',
-      map:'https://maps.app.goo.gl/YdniytcRp2XL5msP7'
+      place:'Catedral Basílica de Santa Marta',
+      address:'Plaza de La Catedral, Cra. 4, Comuna 2 · Santa Marta, Magdalena',
+      map:'https://maps.app.goo.gl/hd3KQLCVN2fsAyXa9'
     },
     {
       icon:'🥂',
@@ -858,9 +1077,7 @@ const WEDDING_CONFIG = {
     photoForm:'https://docs.google.com/forms/d/e/1FAIpQLSd9eWdF-7DtaXXtGYtv6B2LhSaeTVgsmkseGgw_v9vPjbbyqg/viewform?usp=publish-editor',
 
     whatsappNumber:'573168654510',
-    whatsappMessage:'Hola, tengo una duda sobre la boda.',
-
-    video:''
+    whatsappMessage:'Hola, tengo una duda sobre la boda.'
   },
 
   /* OPCIONAL:
@@ -874,7 +1091,7 @@ const WEDDING_CONFIG = {
   },
 
   music:{
-    src:'assets/musica.mp3',
+    src:'musica.mp3',
     autoplayAfterOpen:true
   }
 };
@@ -930,7 +1147,20 @@ function render(){
   $('heroDate').textContent=cfg.date.display;
   $('hero').style.backgroundImage=`url('${cfg.images.hero}')`;
   $('lovePhoto').style.backgroundImage=`url('${cfg.images.couple}')`;
-  $('videoCard').style.backgroundImage=`url('${cfg.images.video || cfg.images.couple}')`;
+  const videoSection=$('videoSection');
+  const weddingVideoEl=$('weddingVideo');
+  const videoCoverEl=$('videoCover');
+
+  if(cfg.images.videoEnabled){
+    videoSection.hidden=false;
+    videoCoverEl.style.backgroundImage=`url('${cfg.images.video || cfg.images.couple}')`;
+    const source=weddingVideoEl.querySelector('source');
+    source.src=cfg.images.videoFile || 'boda.mp4';
+    weddingVideoEl.poster=cfg.images.video || cfg.images.couple;
+    weddingVideoEl.load();
+  }else{
+    videoSection.hidden=true;
+  }
 
   $('welcomeText').textContent=cfg.texts.welcome;
   $('guestName').textContent=guest;
@@ -1010,15 +1240,31 @@ async function openInvite(){
   setTimeout(()=>{
     cover.classList.add('hidden');
     document.body.classList.remove('lock');
+
+    const guide=$('scrollGuide');
+    if(guide){
+      guide.classList.add('show');
+      setTimeout(()=>guide.classList.remove('show'),6500);
+    }
   },620);
+
   if(cfg.music.autoplayAfterOpen&&cfg.music.src){
-    try{await $('music').play();$('musicBtn').classList.add('spin')}catch(e){}
+    try{
+      await $('music').play();
+      $('musicBtn').classList.add('spin');
+      playing=true;
+    }catch(e){}
   }
 }
 envelope.addEventListener('click',openInvite);
 envelope.addEventListener('keydown',e=>{
   if(e.key==='Enter'||e.key===' '){e.preventDefault();openInvite()}
 });
+
+window.addEventListener('scroll',()=>{
+  const guide=$('scrollGuide');
+  if(guide && window.scrollY>45) guide.classList.remove('show');
+},{passive:true});
 
 /* música */
 let playing=false;
@@ -1031,10 +1277,68 @@ $('musicBtn').addEventListener('click',async()=>{
   }catch(e){}
 });
 
-/* video */
-$('videoCard').addEventListener('click',()=>{
-  if(cfg.links.video) window.open(cfg.links.video,'_blank');
-  else alert('Agrega el enlace del video en WEDDING_CONFIG.links.video');
+/* video integrado */
+const weddingVideo=$('weddingVideo');
+const videoCover=$('videoCover');
+let musicWasPlayingBeforeVideo=false;
+
+async function playWeddingVideo(){
+  if(!cfg.images.videoEnabled) return;
+
+  musicWasPlayingBeforeVideo = playing && !$('music').paused;
+
+  if(!$('music').paused){
+    $('music').pause();
+    $('musicBtn').classList.remove('spin');
+  }
+
+  videoCover.classList.add('hidden');
+
+  try{
+    await weddingVideo.play();
+  }catch(e){
+    videoCover.classList.remove('hidden');
+  }
+}
+
+videoCover.addEventListener('click',playWeddingVideo);
+videoCover.addEventListener('keydown',e=>{
+  if(e.key==='Enter'||e.key===' '){
+    e.preventDefault();
+    playWeddingVideo();
+  }
+});
+
+weddingVideo.addEventListener('play',()=>{
+  if(!$('music').paused){
+    $('music').pause();
+    $('musicBtn').classList.remove('spin');
+  }
+});
+
+weddingVideo.addEventListener('ended',async()=>{
+  videoCover.classList.remove('hidden');
+  weddingVideo.currentTime=0;
+
+  if(musicWasPlayingBeforeVideo && cfg.music.src){
+    try{
+      await $('music').play();
+      $('musicBtn').classList.add('spin');
+      playing=true;
+    }catch(e){}
+  }
+});
+
+weddingVideo.addEventListener('pause',async()=>{
+  if(weddingVideo.ended || weddingVideo.currentTime===0) return;
+
+  if(musicWasPlayingBeforeVideo && cfg.music.src){
+    try{
+      await $('music').play();
+      $('musicBtn').classList.add('spin');
+      playing=true;
+    }catch(e){}
+  }
 });
 
 /* lightbox */
